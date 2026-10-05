@@ -1,0 +1,42 @@
+name: Event watcher
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"   # every 10 minutes (GitHub may delay runs a few minutes)
+  workflow_dispatch:          # lets you press "Run workflow" manually
+
+permissions:
+  contents: write             # needed to save seen_events.json back to the repo
+
+concurrency:
+  group: event-watcher
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Check for new events
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_PING: ${{ secrets.DISCORD_PING }}
+        run: python event_watcher.py --once
+
+      - name: Save seen events
+        run: |
+          if [ -n "$(git status --porcelain seen_events.json)" ]; then
+            git config user.name "event-bot"
+            git config user.email "event-bot@users.noreply.github.com"
+            git add seen_events.json
+            git commit -m "Update seen events"
+            git push
+          fi
