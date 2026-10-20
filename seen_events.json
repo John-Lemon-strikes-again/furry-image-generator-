@@ -8,6 +8,7 @@
     "https://monopolygo.wiki/gingerbread-partners-coming-may-25th",
     "https://monopolygo.wiki/hello-kitty-partners-coming-march-10th",
     "https://monopolygo.wiki/looney-tunes-partners-starts-august-7-2026-rewards-guide",
+    "https://monopolygo.wiki/monster-mash-partners-starts-october-21-2026-rewards-guide",
     "https://monopolygo.wiki/next-golden-blitz-bashful-monster-and-fudged",
     "https://monopolygo.wiki/next-golden-blitz-carl-carlson-and-mr-snrub",
     "https://monopolygo.wiki/next-golden-blitz-extraterrestrial-and-hector",
@@ -26,5 +27,15 @@
     "https://monopolygo.wiki/sp-partners-coming-june-30th",
     "https://monopolygo.wiki/villainous-partners-coming-may-2nd"
   ],
-  "pending": {}
+  "pending": {
+    "https://monopolygo.wiki/monster-mash-partners-starts-october-21-2026-rewards-guide": {
+      "label": "Partner Event",
+      "title": "Monster Mash Partners: Starts October 21, 2026 - Rewards & Guide",
+      "url": "https://monopolygo.wiki/monster-mash-partners-starts-october-21-2026-rewards-guide",
+      "image": null,
+      "summary": "Monster Mash Partners starts October 21, 2026. See Partner Event rewards, milestone points, dates, and team-play tips for Monopoly GO.",
+      "post_date": "2026-10-20",
+      "start_date": "2026-10-21"
+    }
+  }
 }
